@@ -1,6 +1,5 @@
-package org.bagirov;
+package org.bagirov.model;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 

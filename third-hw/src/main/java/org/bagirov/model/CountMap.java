@@ -1,4 +1,4 @@
-package org.bagirov;
+package org.bagirov.model;
 
 import java.util.Map;
 
