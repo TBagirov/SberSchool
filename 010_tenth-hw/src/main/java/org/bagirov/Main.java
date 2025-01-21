@@ -6,29 +6,24 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
     public static void main(String[] args) {
         String filePath = "numbers.txt"; // Путь к файлу с числами
         List<Integer> numbers = readNumbersFromFile(filePath);
-        List<FactorialThread> threads = new ArrayList<>();
 
-        // Создаем и запускаем потоки для вычисления факториала
+        // Создаем пул потоков с фиксированным количеством потоков
+        int numberOfThreads = Runtime.getRuntime().availableProcessors(); // Количество доступных ядер процессора
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+ 
         for (Integer number : numbers) {
-            FactorialThread thread = new FactorialThread(number);
-            threads.add(thread);
-            thread.start();
+            executorService.submit(new FactorialThread(number));
         }
 
-        // Ждем завершения всех потоков
-        for (FactorialThread thread : threads) {
-            try {
-                thread.join(); // Ожидаем завершения потока
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        executorService.shutdown();
     }
 
     // Метод для чтения чисел из файла
