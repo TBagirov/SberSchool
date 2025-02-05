@@ -1,4 +1,4 @@
-package org.bagirov.cahce;
+package org.bagirov.cache;
 
 
 public enum CacheStrategy {

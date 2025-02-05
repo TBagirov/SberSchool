@@ -1,4 +1,4 @@
-package org.bagirov.cahce;
+package org.bagirov.cache;
 
 import java.io.EOFException;
 import java.io.File;

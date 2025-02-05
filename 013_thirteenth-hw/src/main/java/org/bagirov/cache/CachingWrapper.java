@@ -1,4 +1,5 @@
-package org.bagirov.cahce;
+
+package org.bagirov.cache;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

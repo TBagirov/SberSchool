@@ -1,4 +1,4 @@
-package org.bagirov.cahce;
+package org.bagirov.cache;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
